@@ -23,6 +23,8 @@ def salario():
     salario = {"base": base, "cantVentas":cantVentas, "comision":comision,"impuesto":impuesto,"salFinal":salFinal}
     print (f"asd: ${salFinal}")
     print (salario)
+    nombre = "forsen"
+    empleado = (nombre, salario)
     
 
 def calcularSalario():
