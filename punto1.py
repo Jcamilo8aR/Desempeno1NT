@@ -1,68 +1,78 @@
-# #LISTA
-posicionClasificacion = []
-posicionCarrera = []
+#LISTA 
+salario = {}
+datosEmpleado = []
+empleado = ()
 
-#TUPLA
-posicionCarrera = ("Barein","Arabia Saudi","Australia","Azerbaiyán")
+def empleado():
+    identificacion = int(input("Identificacion: "))
+    nombre = input("Nombre Empleado: ")
+    edad = int(input("Edad: "))
+    empleado = [identificacion, nombre, edad]
+    return empleado
+    
 
-# DICCIONARIO
-pilotos = {
-    1: "Verstappen", 3:"Ricciardo", 10:"Gasly", 11:"Perez"
-}
+def salario():
+    empleado()
+    base = int(input("Salario mensual: "))
+    comision = int(input("Comision por venta: "))
+    cantVentas = int(input("Cantidad ventas en el mes: "))
+    impuesto = int(input("Porcentaje de impuestos (ej:5): "))
+    
+    x = comision * cantVentas
+    c = base + x
+    deduccion = (comision * impuesto)/100
+    salFinal = c - deduccion
+    
+    salario = {"base": base, "cantVentas":cantVentas, "comision":comision,"impuesto":impuesto,"salFinal":salFinal}
+    print (f"Salario: ${salFinal}")
+    print (salario)
+    
+    datosEmpleado = (empleado, salario)
+    return datosEmpleado
+    
 
-equipos = {1:"Red Bull", 2:"Ferrari", 3:"Mercedes", 4:"Alpine", 5:"Mclaren", 6:"Alfa Romeo", 7:"Aston Martin", 8:"Haas", 9:"Alpha Tauri", 10:"Willimans"}
+def actualizar():
+    identificacion = int(input("Identificacion: "))
+    nombre = input("Nombre Empleado: ")
+    edad = int(input("Edad: "))
+    empleado = (identificacion, nombre, edad)
+    
+    base = int(input("Salario mensual: "))
+    comision = int(input("Comision por venta: "))
+    cantVentas = int(input("Cantidad ventas en el mes: "))
+    impuesto = int(input("Porcentaje de impuestos (ej:5): "))
+    x = comision * cantVentas
+    c = base + x
+    deduccion = (comision * impuesto)/100
+    salFinal= c - deduccion
+    
+    salario = {"base": base, "cantVentas":cantVentas, "comision":comision,"impuesto":impuesto,"salFinal":salFinal}
+    datosEmpleado = [empleado, salario]
+    
+    print (f"Salario: ${salFinal}")
+    print (salario)
+    print(datosEmpleado)
+    
+    
 
-puntos = []
-posicion = 0
-punto=0
-def calcularPuntos(posicion):
-    posicion=int(input("Posicion Carrera: "))
-    punto=0
-    puntos = []
-    if posicion == 1:
-        punto=25
-        puntos.append(punto)
-    elif posicion == 2:
-        punto=18
-        puntos.append(punto)
-    elif posicion == 3:
-        punto=15
-        puntos.append(punto)
-    elif posicion == 4:
-        punto=12
-        puntos.append(punto)
-    elif posicion == 5:
-        punto=10
-        puntos.append(punto)
-    elif posicion == 6:
-        punto=8
-        puntos.append(punto)
-    elif posicion == 7:
-        punto=6
-        puntos.append(punto)
-    elif posicion == 8:
-        punto=4
-        puntos.append(punto)
-    elif posicion == 9:
-        punto=punto
-        puntos.append(punto)
-    elif posicion == 10:
-        punto=1
-        puntos.append(punto)
-    else: 
-        puntos = 0
-    print(punto)
-        
-    return puntos
-
-opcion = 1
-while opcion ==1 or opcion == 2:
-    opcion = int(input(("Escoga una opción para continuar: \n1.Agregar \n")))
-    if opcion == 1:
-        print(calcularPuntos(posicion))
-    elif opcion == 2:
-        print(calcularPuntos(posicion))
+def opcion():
+    opcion = 1
+    while opcion ==1 or opcion == 2:
+        opcion = int(input(("Escoga una opción para continuar: \n1.Agregar \n2.Actualizar \n3.Salir \n")))
+        if opcion == 1:
+            salario()
+        elif opcion == 2:
+            actualizar()
+        elif opcion == 3:
+            break
+    while opcion !=1 and opcion !=2 and opcion !=3 and opcion !=4 and opcion !=5:
+        print("Opcion Invalida")
+        opcion = int(input(("Escoga una opción para continuar: \n1.Agregar \n2.Actualizar \n")))
+        if opcion == 3:
+            break
+    
+    
 
 if __name__=="__main__":
-    print(f"asd: ${calcularPuntos(posicion)}")
-    print(f"Puntos: {puntos}")
+    opcion()
+    
